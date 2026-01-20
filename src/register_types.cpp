@@ -6,6 +6,8 @@
 #include <godot_cpp/godot.hpp>
 
 #include "example_class.h"
+#include "state_machine.h"
+#include "state.h"
 
 using namespace godot;
 
@@ -15,6 +17,8 @@ void initialize_gdextension_types(ModuleInitializationLevel p_level)
 		return;
 	}
 	GDREGISTER_CLASS(ExampleClass);
+	GDREGISTER_CLASS(State);
+	GDREGISTER_CLASS(StateMachine);
 }
 
 void uninitialize_gdextension_types(ModuleInitializationLevel p_level) {
