@@ -1,6 +1,7 @@
 #include "state_machine.h"
 #include "util.h"
 
+
 void StateMachine::_bind_methods() {
 
 #if 0
@@ -17,20 +18,23 @@ void StateMachine::_bind_methods() {
     //ADD_PROPERTY(PropertyInfo(Variant::OBJECT, "state", PROPERTY_HINT_TYPE_STRING, String::num(Variant::OBJECT) + "/" + String::num(PROPERTY_HINT_NODE_TYPE) + ":State"), "set_state", "get_state");
 }
 
-void StateMachine::_ready() {
-    set_process_mode(PROCESS_MODE_PAUSABLE);
-    print("state machine _ready");
-    _initialize();
+void StateMachine::_notification(int p_what) {
+	switch(p_what) {
+		case NOTIFICATION_READY:
+            set_process_mode(PROCESS_MODE_PAUSABLE);
+            print("state machine _ready");
+            _initialize();
+            break;
+    }
 }
 
 void StateMachine::_initialize() {
     print("state machine _initialize()");
     for(int i=0; i<get_children().size();i++) {
         if(State* state = cast_to<State>(get_children()[i])) {
-            states[state->get_name()] = state->get_instance_id();
-            print("Registered state ", state->get_name());
+            states[state->get_state_name()] = state->get_instance_id();
+            print("Registered state ", state->get_state_name(), " : ", states[state->get_state_name()] );
         }
-
     }
 }
 

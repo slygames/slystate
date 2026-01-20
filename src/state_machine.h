@@ -21,6 +21,7 @@ class StateMachine : public Node {
 
 protected:
 	static void _bind_methods();
+	void _notification(int p_what);
 
 public:
 	StateMachine() = default;
@@ -29,7 +30,7 @@ public:
 	virtual void _initialize();
 
 	// event handlers
-    virtual void _ready() override;
+    //virtual void _ready() override;
 	/*
 	virtual void _process(double p_delta) override;
 	virtual void _physics_process(double p_delta) override;

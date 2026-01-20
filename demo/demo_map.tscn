@@ -158,11 +158,13 @@ script = ExtResource("3_yjjny")
 metadata/_custom_type_script = "uid://bpngtv56qpthn"
 
 [node name="DemoIdleState" type="State" parent="DemoPlayer/DemoStateMachine"]
+state_name = &"idle"
 process_mode = 4
 script = ExtResource("4_n3c11")
 metadata/_custom_type_script = "uid://d31lnr3lo8wl0"
 
 [node name="DemoWalkState" type="State" parent="DemoPlayer/DemoStateMachine"]
+state_name = &"walk"
 process_mode = 4
 script = ExtResource("5_vipss")
 metadata/_custom_type_script = "uid://cn32jyuyuho8x"

@@ -3,14 +3,18 @@
 #include <godot_cpp/classes/node.hpp>
 #include <godot_cpp/classes/input_event.hpp>
 #include <godot_cpp/core/gdvirtual.gen.inc>
+#include <godot_cpp/variant/string_name.hpp>
 
 using namespace godot;
 
 class State : public Node {
 	GDCLASS(State, Node)
 
+    StringName state_name;
+
 protected:
 	static void _bind_methods();
+	void _notification(int p_what);
 
 public:
 	State() = default;
@@ -32,14 +36,19 @@ public:
     // todo: overload = operator so assigning to state variable in state_machine class calls the set_state() function from the overloaded = operator
 
     // event handlers
+    /*
     virtual void _ready() override;
 	virtual void _process(double p_delta) override;
 	virtual void _physics_process(double p_delta) override;
+    */
 	virtual void _unhandled_input(const Ref<InputEvent> &p_event) override;
 
     // event handlers which get triggered when the state is enabled or disabled
     virtual void on_enter_state();
     virtual void on_exit_state();
+
+    StringName get_state_name() const { return state_name; }
+    void set_state_name(StringName p_state_name) { state_name = p_state_name; }
 
     GDVIRTUAL0(_on_enter_state);
     GDVIRTUAL0(_on_exit_state);
