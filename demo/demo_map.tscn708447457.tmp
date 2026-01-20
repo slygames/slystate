@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://dsn6oohhsmm2j"]
+
+[ext_resource type="Script" uid="uid://ql1qlkeh1u8s" path="res://demo_player.gd" id="1_ywkik"]
+[ext_resource type="Texture2D" uid="uid://dbx66sovxd1" path="res://icon.svg" id="2_ofcdo"]
+[ext_resource type="Script" uid="uid://bpngtv56qpthn" path="res://demo_state_machine/demo_state_machine.gd" id="3_yjjny"]
+[ext_resource type="Script" uid="uid://d31lnr3lo8wl0" path="res://demo_state_machine/states/demo_idle_state.gd" id="4_n3c11"]
+[ext_resource type="Script" uid="uid://cn32jyuyuho8x" path="res://demo_state_machine/states/demo_walk_state.gd" id="5_vipss"]
+
+[node name="Node" type="Node"]
+
+[node name="ExamplePlayer" type="Node2D" parent="."]
+script = ExtResource("1_ywkik")
+metadata/_custom_type_script = "uid://ql1qlkeh1u8s"
+
+[node name="Sprite2D" type="Sprite2D" parent="ExamplePlayer"]
+texture = ExtResource("2_ofcdo")
+
+[node name="DemoStateMachine" type="StateMachine" parent="ExamplePlayer" node_paths=PackedStringArray("state")]
+state = NodePath("DemoIdleState")
+process_mode = 1
+script = ExtResource("3_yjjny")
+metadata/_custom_type_script = "uid://bpngtv56qpthn"
+
+[node name="DemoIdleState" type="State" parent="ExamplePlayer/DemoStateMachine"]
+process_mode = 4
+script = ExtResource("4_n3c11")
+metadata/_custom_type_script = "uid://d31lnr3lo8wl0"
+
+[node name="DemoWalkState" type="State" parent="ExamplePlayer/DemoStateMachine"]
+process_mode = 4
+script = ExtResource("5_vipss")
+metadata/_custom_type_script = "uid://cn32jyuyuho8x"

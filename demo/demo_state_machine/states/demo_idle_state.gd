@@ -1,5 +1,7 @@
 extends State
-class_name ExampleIdleState
+class_name DemoIdleState
+
+@onready var animation_player: AnimationPlayer = $"../../AnimationPlayer"
 
 func _ready():
 	pass

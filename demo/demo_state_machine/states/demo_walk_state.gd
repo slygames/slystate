@@ -1,5 +1,5 @@
 extends State
-class_name ExampleWalkState
+class_name DemoWalkState
 
 func _ready():
 	pass

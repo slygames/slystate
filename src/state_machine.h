@@ -13,8 +13,8 @@ class StateMachine : public Node {
 	TypedArray<NodePath> states;	// all states
 	#endif
 
-	State* state;	// currently active state
-	State* state_prev; // cached previous state //todo: maybe useful or remove if not useful
+	State* state = nullptr;	// currently active state
+	State* state_prev = nullptr; // cached previous state //todo: maybe useful or remove if not useful
 
 protected:
 	static void _bind_methods();
@@ -37,11 +37,13 @@ public:
 	void set_state(State* p_state) { 
 		state_prev = state;
 		state = p_state; 
-		if(state_prev!=nullptr) state_prev->_on_exit_state();
-		if(state!=nullptr) state->_on_enter_state();
+		if(state_prev !=nullptr) state_prev->on_exit_state();
+		if(state!=nullptr) state->on_enter_state();
 	}
 #if 0
 	TypedArray<NodePath> get_states() const { return states; }
 	void set_states(TypedArray<NodePath> p_states) { states = p_states; }
 #endif
 };
+
+

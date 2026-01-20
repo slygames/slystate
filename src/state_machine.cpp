@@ -12,7 +12,8 @@ void StateMachine::_bind_methods() {
 
     ClassDB::bind_method(D_METHOD("set_state", "p_state"), &StateMachine::set_state);
 	ClassDB::bind_method(D_METHOD("get_state"), &StateMachine::get_state);
-    ADD_PROPERTY(PropertyInfo(Variant::OBJECT, "state", PROPERTY_HINT_TYPE_STRING, String::num(Variant::OBJECT) + "/" + String::num(PROPERTY_HINT_RESOURCE_TYPE) + ":State"), "set_state", "get_state");
+    ADD_PROPERTY(PropertyInfo(Variant::OBJECT, "state", PROPERTY_HINT_NODE_TYPE, "State"), "set_state", "get_state");
+    //ADD_PROPERTY(PropertyInfo(Variant::OBJECT, "state", PROPERTY_HINT_TYPE_STRING, String::num(Variant::OBJECT) + "/" + String::num(PROPERTY_HINT_NODE_TYPE) + ":State"), "set_state", "get_state");
 }
 
 void StateMachine::_ready() {
