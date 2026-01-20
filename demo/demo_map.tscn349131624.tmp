@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://ql1qlkeh1u8s" path="res://demo_player.gd" id="1_ywkik"]
 [ext_resource type="Texture2D" uid="uid://tlnofyrjtvwf" path="res://DemoPlayerSprite.png" id="2_ywkik"]
 [ext_resource type="Script" uid="uid://bpngtv56qpthn" path="res://demo_state_machine/demo_state_machine.gd" id="3_yjjny"]
-[ext_resource type="Script" uid="uid://d31lnr3lo8wl0" path="res://demo_state_machine/demo_states/demo_idle_state.gd" id="4_n3c11"]
-[ext_resource type="Script" uid="uid://cn32jyuyuho8x" path="res://demo_state_machine/demo_states/demo_walk_state.gd" id="5_vipss"]
+[ext_resource type="Script" uid="uid://d31lnr3lo8wl0" path="res://demo_state_machine/states/demo_idle_state.gd" id="4_n3c11"]
+[ext_resource type="Script" uid="uid://cn32jyuyuho8x" path="res://demo_state_machine/states/demo_walk_state.gd" id="5_vipss"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ywkik"]
 radius = 9.0

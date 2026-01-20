@@ -2,6 +2,7 @@
 
 #include <godot_cpp/classes/node.hpp>
 #include <godot_cpp/classes/input_event.hpp>
+#include <godot_cpp/core/gdvirtual.gen.inc>
 
 using namespace godot;
 

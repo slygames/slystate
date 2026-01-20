@@ -2,6 +2,7 @@
 
 #include <godot_cpp/classes/node.hpp>
 #include <godot_cpp/variant/typed_array.hpp>
+#include <godot_cpp/variant/typed_dictionary.hpp>
 #include "state.h"
 
 using namespace godot;
@@ -15,6 +16,8 @@ class StateMachine : public Node {
 
 	State* state = nullptr;	// currently active state
 	State* state_prev = nullptr; // cached previous state //todo: maybe useful or remove if not useful
+
+	TypedDictionary<StringName, int64_t> states;
 
 protected:
 	static void _bind_methods();

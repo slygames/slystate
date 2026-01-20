@@ -1,4 +1,5 @@
 #include "state_machine.h"
+#include "util.h"
 
 void StateMachine::_bind_methods() {
 
@@ -18,9 +19,18 @@ void StateMachine::_bind_methods() {
 
 void StateMachine::_ready() {
     set_process_mode(PROCESS_MODE_PAUSABLE);
+    print("state machine _ready");
+    _initialize();
 }
 
 void StateMachine::_initialize() {
-    
+    print("state machine _initialize()");
+    for(int i=0; i<get_children().size();i++) {
+        if(State* state = cast_to<State>(get_children()[i])) {
+            states[state->get_name()] = state->get_instance_id();
+            print("Registered state ", state->get_name());
+        }
+
+    }
 }
 
