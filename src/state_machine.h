@@ -3,6 +3,7 @@
 #include <godot_cpp/classes/node.hpp>
 #include <godot_cpp/variant/typed_dictionary.hpp>
 #include <godot_cpp/variant/string_name.hpp>
+#include <godot_cpp/core/gdvirtual.gen.inc>
 #include "state.h"
 
 using namespace godot;

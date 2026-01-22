@@ -15,7 +15,7 @@ void StateMachine::_bind_methods() {
 	ClassDB::bind_method(D_METHOD("state_changed"), &StateMachine::state_changed);
     GDVIRTUAL_BIND(_state_changed);
 
-    //ADD_SIGNAL(godot::MethodInfo("on_state_changed"));
+    ADD_SIGNAL(godot::MethodInfo("on_state_changed"));
 
     /*
     // setters and getters
@@ -74,6 +74,7 @@ void StateMachine::set_state(State *p_state) {
 }
 
 void StateMachine::state_changed() {
+    emit_signal("on_state_changed");
     if(GDVIRTUAL_CALL(_state_changed)) {
 		print("_state_changed gdvirtual called");
 	}
