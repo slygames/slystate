@@ -3,14 +3,14 @@
 #include <godot_cpp/classes/node.hpp>
 #include <godot_cpp/classes/input_event.hpp>
 #include <godot_cpp/core/gdvirtual.gen.inc>
-#include <godot_cpp/variant/string_name.hpp>
+//#include <godot_cpp/variant/string_name.hpp>
 
 using namespace godot;
 
 class State : public Node {
 	GDCLASS(State, Node)
 
-    StringName state_name;
+    //StringName state_name;
 
 protected:
 	static void _bind_methods();
@@ -26,12 +26,13 @@ public:
             set_state(other);
         }
         //return *this;
-    }*/
+    }
+    */
 
-     #if 0
+    /*
     //State::State(const State& other) {}
     // event handlers (these are not Node event handler overrides but StateMachine extends Node and calls these for its active state and they're exposed as virtual functions in gdscript)
-    #endif
+    */
     
     // todo: overload = operator so assigning to state variable in state_machine class calls the set_state() function from the overloaded = operator
 
@@ -47,8 +48,10 @@ public:
     virtual void on_enter_state();
     virtual void on_exit_state();
 
+    #if 0
     StringName get_state_name() const { return state_name; }
     void set_state_name(StringName p_state_name) { state_name = p_state_name; }
+    #endif
 
     GDVIRTUAL0(_on_enter_state);
     GDVIRTUAL0(_on_exit_state);

@@ -1,7 +1,7 @@
 #include "state.h"
 #include "util.h"
-#include <godot_cpp/core/class_db.hpp>
-#include <godot_cpp/classes/engine.hpp>
+//#include <godot_cpp/core/class_db.hpp>
+//#include <godot_cpp/classes/engine.hpp>
 
 
 void State::_bind_methods() {
@@ -11,9 +11,11 @@ void State::_bind_methods() {
 	GDVIRTUAL_BIND(_on_enter_state);
     GDVIRTUAL_BIND(_on_exit_state);
 
+    /*
     ClassDB::bind_method(D_METHOD("set_state_name", "p_state_name"), &State::set_state_name);
 	ClassDB::bind_method(D_METHOD("get_state_name"), &State::get_state_name);
     ADD_PROPERTY(PropertyInfo(Variant::STRING_NAME, "state_name"), "set_state_name", "get_state_name");
+    */
 }
 
 void State::_notification(int p_what) {
