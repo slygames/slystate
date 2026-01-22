@@ -48,10 +48,10 @@ public:
     virtual void on_enter_state();
     virtual void on_exit_state();
 
-    #if 0
+    /*
     StringName get_state_name() const { return state_name; }
     void set_state_name(StringName p_state_name) { state_name = p_state_name; }
-    #endif
+    */
 
     GDVIRTUAL0(_on_enter_state);
     GDVIRTUAL0(_on_exit_state);

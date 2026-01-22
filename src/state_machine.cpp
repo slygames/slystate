@@ -4,9 +4,10 @@
 
 void StateMachine::_bind_methods() {
 
-
     ClassDB::bind_method(D_METHOD("set_state", "p_state"), &StateMachine::set_state);
 	ClassDB::bind_method(D_METHOD("get_state"), &StateMachine::get_state);
+
+    ClassDB::bind_method(D_METHOD("get_state_name"), &StateMachine::get_state_name);
 
     /*
     // setters and getters
@@ -33,7 +34,6 @@ void StateMachine::_notification(int p_what) {
 }
 
 void StateMachine::_initialize() {
-    print("state machine _initialize()");
     // get states from statemachine child nodes (the array will be populated in the scene tree order, so the top state is the default states[0])
     for(int i=0; i<get_children().size();i++) {
         if(State* new_state = cast_to<State>(get_children()[i])) {

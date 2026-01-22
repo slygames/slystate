@@ -29,6 +29,7 @@ public:
 	State* get_state() const { return state; }
 	void set_state(State* p_state);
 
+	StringName get_state_name() { return state!=nullptr ? state->get_name().to_lower() : ""; }
 
 	/*
 	// event handlers
@@ -41,5 +42,3 @@ public:
 	void set_states(TypedArray<NodePath> p_states) { states = p_states; }
 	*/
 };
-
-
