@@ -26,7 +26,7 @@ void StateMachine::_notification(int p_what) {
 		case NOTIFICATION_READY:
         case NOTIFICATION_CHILD_ORDER_CHANGED:
             set_process_mode(PROCESS_MODE_PAUSABLE);
-            print("state machine _ready");
+            //print("state machine _ready");
             _initialize();
             break;
     }
@@ -37,12 +37,14 @@ void StateMachine::_initialize() {
     // get states from statemachine child nodes (the array will be populated in the scene tree order, so the top state is the default states[0])
     for(int i=0; i<get_children().size();i++) {
         if(State* new_state = cast_to<State>(get_children()[i])) {
-            states[new_state->get_name()] = new_state->get_path();
-            // set default state to first state
-            if(i==0) {
-                set_state(new_state);
+            if(new_state->is_inside_tree()) {
+                states[new_state->get_name()] = new_state->get_path(); // if(new_state->is_inside_tree()) else NodePath()
+                // set default state to first state
+                if(i==0) {
+                    set_state(new_state);
+                }
+                //print("Registered state ", new_state->get_name(), " : ", states[new_state->get_name()] );
             }
-            print("Registered state ", new_state->get_name(), " : ", states[new_state->get_name()] );
         }
     }
 }

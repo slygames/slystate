@@ -151,20 +151,16 @@ texture_filter = 1
 texture = ExtResource("2_ywkik")
 hframes = 21
 
-[node name="DemoStateMachine" type="StateMachine" parent="DemoPlayer" node_paths=PackedStringArray("state")]
-state = NodePath("DemoIdleState")
+[node name="DemoStateMachine" type="StateMachine" parent="DemoPlayer"]
 process_mode = 1
 script = ExtResource("3_yjjny")
 metadata/_custom_type_script = "uid://bpngtv56qpthn"
 
 [node name="DemoIdleState" type="State" parent="DemoPlayer/DemoStateMachine"]
-state_name = &"idle"
-process_mode = 4
 script = ExtResource("4_n3c11")
 metadata/_custom_type_script = "uid://d31lnr3lo8wl0"
 
 [node name="DemoWalkState" type="State" parent="DemoPlayer/DemoStateMachine"]
-state_name = &"walk"
 process_mode = 4
 script = ExtResource("5_vipss")
 metadata/_custom_type_script = "uid://cn32jyuyuho8x"
